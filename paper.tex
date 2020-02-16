@@ -1,51 +1,62 @@
 % Latex MLA Template
 % Josiah Putman, 2020
 
+\documentclass[12pt]{article}
 \input{sections/config.tex}
 
-\documentclass[12pt]{article}
-
 % Packages
+\usepackage{anyfontsize}
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
 \usepackage[leftmargin = 1in, rightmargin = 0in, vskip = 0in]{quoting}
 \usepackage{microtype}
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{lmodern}
+\usepackage{csquotes}
+\usepackage[american]{babel}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
 
 % Bibliography
-\usepackage[style=mla, backend=bibtex]{biblatex}
+\usepackage[style=mla, backend=biber]{biblatex}
 \addbibresource{references.bib}
 
 % Block Quote Spacing (\doublespaced or \singlespaced)
 \newcommand{\blockquotespacing}{\doublespaced}
 
+% Puts figures on own page
+\renewcommand{\floatpagefraction}{0.1}
+
 % Essay Header
 \pagestyle{myheadings}
 \markright{\hfill \emph{\lastname{} }}
-
-% pdfLaTeX: TeX Gyre Termes
-\usepackage{tgtermes}
-\usepackage[T1]{fontenc}
 
 % Commands
 \newcommand{\prose}{.25in}
 \newcommand{\poetry}{0in}
 \newcommand{\singlespaced}{\setstretch{1}\vspace{\baselineskip}}
 \newcommand{\doublespaced}{}
-\newenvironment{blockquote}[1][\prose]{\setlength{\parindent}{#1}\begin{quoting}\blockquotespacing}{\end{quoting}}
 
-\begin{document}\thispagestyle{empty}
+\begin{document}
 \setstretch{2}
 \raggedright
 
-% Essay Heading
-\firstname{} \lastname{} \\
-\professor{} \\
-\class{} \\
-\today
-
 % Title
-\centerline{\papertitle{}}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{0.2\textheight}
+        \papertitle{}
+        \vfill
+        \firstname{} \lastname{} \\
+        \professor{} \\
+        \class{} \\
+        \today
+        \vfill
+    \end{center}
+\end{titlepage}
+
 \setlength{\parindent}{.5in}
 
 \input{sections/main.tex}
